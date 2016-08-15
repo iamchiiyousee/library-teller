@@ -19,7 +19,9 @@ namespace Library
 
             //populate mediaToRent with the values returned from getFile instead of an empty list e.g. "new List<string>();"
             //implement
-            List<string> mediaToRent = new List<string>();
+            List<string> mediaToRent = getFile.ReturnMediaFile(@"..\..\Media.txt");
+
+            
             
             //create a new list for us to use to store our media objects to rent
             List<Media> rentedMedia = new List<Media>();
@@ -42,11 +44,38 @@ namespace Library
                     if (type.Equals("Book"))
                     {
                         //create a book object
+                        Book book = new Book();
                         //populate the book object with a title and length
+                        book.Title = title;
+                        book.Length = length;
                         //then add the newly created book to rentedMedia
+                        rentedMedia.Add(book);
+
+                    }
+                    if (type.Equals("DVD"))
+                    {
+                        //create a book object
+                         dvd dvd = new dvd();
+                        //populate the book object with a title and length
+                        dvd.Title = title;
+                        dvd.Length = length;
+                        //then add the newly created book to rentedMedia
+                        rentedMedia.Add(dvd);
+
+                    }
+                    if (type.Equals("Magazine"))
+                    {
+                        //create a book object
+                        magzine magazine = new magzine();
+                        //populate the book object with a title and length
+                        magazine.Title = title;
+                        magazine.Length = length;
+                        //then add the newly created book to rentedMedia
+                        rentedMedia.Add(magazine);
+
                     }
                     //complete for the DVD and Magazine media types
-                        //implement
+                    //implement
                 }
             }
 
@@ -54,7 +83,8 @@ namespace Library
             foreach (Media mediaItem in rentedMedia)
             {
                 //for each mediaItem call PrintMediaDetails()
-                    //implement
+                //implement
+                mediaItem.PrintMediaDetails();
             }
 
             //halt the program so we can read the output

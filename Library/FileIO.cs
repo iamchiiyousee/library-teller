@@ -12,6 +12,8 @@ namespace Library
         public List<string> ReturnMediaFile(string path)
         {
             //initialize the list we'll be returning
+            //var lines = File.ReadLines(@"Media.txt");
+
             List<string> mediaFile = new List<string>();
 
             try
@@ -20,18 +22,33 @@ namespace Library
                 if (!File.Exists(path))
                 {
                     //throw appropriate exepction
-                        //implement
+                    //implement
+                    throw new FileNotFoundException("file not found!", path);
                 }
 
                 //initialize the empty string we'll be using for each line
                 string line;
 
                 //open a StreamReader to the file specifcied in the path variable 
+                //implement
+                using (StreamReader reader = new StreamReader(path))
+                {
+                    //while reading a new from file, addd each line to mediaFile
+                    //as long as each new line is not null
                     //implement
+                    line = reader.ReadLine();
 
-                //while reading a new from file, addd each line to mediaFile
-                //as long as each new line is not null
-                    //implement
+                    while (line !=null)
+                    {
+                        mediaFile.Add(line);
+                        line = reader.ReadLine();
+                    }
+
+
+                }
+
+
+
 
 
                 //remember to close your file
@@ -40,12 +57,14 @@ namespace Library
             catch (FileNotFoundException)
             {
                 //write out appropriate message
-                    //implement
+                //implement
+                Console.WriteLine("File not found");
             }
             catch (Exception e)
             {
                 //write out the message of e
-                    //implement
+                //implement
+                Console.WriteLine(e);
             }
 
             return mediaFile;

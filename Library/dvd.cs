@@ -14,7 +14,7 @@ namespace Library
             {
                 return 7;
             }
-            //Ze set mezod, it does nozing!
+            //Ze set mezod, it does nozing! boot
             set
             {
                 
